@@ -90,6 +90,20 @@
                     <h3>Traditional Taste</h3>
                     <p>Authentic Indian flavors that remind you of your mother's cooking.</p>
                 </div>
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>FSSAI Certified</h3>
+                    <p>Licensed and certified food service provider (FSSAI: 23325004000571).</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Quality Assured</h3>
+                    <p>We use only the finest ingredients and maintain strict quality standards in every meal.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -320,6 +334,15 @@
                                 <p>Monday - Sunday<br>Lunch: 12:00 PM - 2:00 PM<br>Dinner: 7:00 PM - 9:00 PM<br><small>(Sunday: OFF)</small></p>
                             </div>
                         </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>FSSAI Licence</h4>
+                                <p>23325004000571</p>
+                            </div>
+                        </div>
                 </div>
                 <div class="contact-form">
                     <form id="contactForm">
@@ -343,7 +366,12 @@
                         <div class="form-group">
                             <textarea id="requirements" placeholder="Additional Requirements" rows="4"></textarea>
                         </div>
-                        <button type="button" class="btn btn-primary" onclick="sendEmail()">Book Your Tiffin</button>
+                        <button type="button" class="btn btn-primary" onclick="sendEmail()">
+                            <i class="fab fa-whatsapp"></i> Book Your Tiffin via WhatsApp
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="sendViaEmail()">
+                            <i class="fas fa-envelope"></i> Send via Email
+                        </button>
                     </form>
                 </div>
                 </div>
@@ -379,6 +407,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 आँगन Tiffin Service. All rights reserved.</p>
+                <p class="fssai-info">FSSAI Licence No.: 23325004000571</p>
             </div>
         </div>
     </footer>

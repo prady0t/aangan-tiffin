@@ -445,6 +445,78 @@ function sendEmail() {
         return;
     }
     
+    // Create message body with all the information
+    const messageBody = `Hello! I would like to book a tiffin service with आँगन.
+
+Customer Details:
+- Name: ${name}
+- Phone: ${phone}
+- Email: ${email}
+- Selected Plan: ${plan}
+- Additional Requirements: ${requirements || 'None'}
+
+Please contact me to confirm my tiffin service booking.
+
+Thank you!`;
+    
+    // Send to WhatsApp
+    sendToWhatsApp(messageBody);
+}
+
+// Function to send message to WhatsApp
+function sendToWhatsApp(message) {
+    // WhatsApp number from your contact info
+    const whatsappNumber = '919876543210'; // This should match the phone number in your contact section
+    
+    // Create WhatsApp URL with pre-filled message
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    
+    // Check if user is on mobile device
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    try {
+        if (isMobile) {
+            // On mobile, try to open WhatsApp app directly
+            window.location.href = whatsappUrl;
+        } else {
+            // On desktop, open in new tab
+            window.open(whatsappUrl, '_blank');
+        }
+        
+        // Show success message
+        alert('WhatsApp opened! Please send the message to complete your booking.');
+        
+        // Clear the form after successful submission
+        clearForm();
+    } catch (error) {
+        // Fallback: if WhatsApp doesn't work, offer email option
+        console.error('WhatsApp failed to open:', error);
+        if (confirm('WhatsApp could not be opened. Would you like to send via email instead?')) {
+            sendViaEmail();
+        }
+    }
+}
+
+// Function to clear the form
+function clearForm() {
+    document.getElementById('contactForm').reset();
+}
+
+// Alternative function to send via email (keeping as backup option)
+function sendViaEmail() {
+    // Get form values
+    const name = document.getElementById('customerName').value;
+    const phone = document.getElementById('customerPhone').value;
+    const email = document.getElementById('customerEmail').value;
+    const plan = document.getElementById('selectedPlan').value;
+    const requirements = document.getElementById('requirements').value;
+    
+    // Validate required fields
+    if (!name || !phone || !email || !plan) {
+        alert('Please fill in all required fields.');
+        return;
+    }
+    
     // Create email body with all the information
     const emailBody = `Hello,
 

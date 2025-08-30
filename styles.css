@@ -723,6 +723,28 @@ h1, h2, h3, h4, h5, h6 {
     min-height: 100px;
 }
 
+/* Contact form buttons */
+.contact-form .btn {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.contact-form .btn-secondary {
+    background: transparent;
+    color: #ff6b6b;
+    border: 2px solid #ff6b6b;
+    margin-top: 5px;
+}
+
+.contact-form .btn-secondary:hover {
+    background: #ff6b6b;
+    color: white;
+}
+
+.contact-form .btn i {
+    margin-right: 8px;
+}
+
 /* Footer */
 .footer {
     background: #2c3e50;
