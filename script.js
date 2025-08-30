@@ -466,7 +466,7 @@ Thank you!`;
 // Function to send message to WhatsApp
 function sendToWhatsApp(message) {
     // WhatsApp number from your contact info
-    const whatsappNumber = '919876543210'; // This should match the phone number in your contact section
+    const whatsappNumber = '919650319345'; // Updated WhatsApp number
     
     // Create WhatsApp URL with pre-filled message
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
