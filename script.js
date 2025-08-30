@@ -1,3 +1,35 @@
+// Welcome Screen Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Set initial state
+    document.body.classList.add('welcome-mode');
+    
+    // Check if user has visited before (optional)
+    const hasVisited = localStorage.getItem('aanganVisited');
+    if (hasVisited) {
+        // User has visited before, skip welcome screen
+        enterWebsite();
+    }
+});
+
+// Function to enter the main website
+function enterWebsite() {
+    const welcomeOverlay = document.getElementById('welcomeOverlay');
+    const body = document.body;
+    
+    // Fade out welcome screen
+    welcomeOverlay.classList.add('fade-out');
+    
+    // After fade out, hide welcome screen and show website
+    setTimeout(() => {
+        welcomeOverlay.style.display = 'none';
+        body.classList.remove('welcome-mode');
+        body.classList.add('website-loaded');
+        
+        // Mark as visited
+        localStorage.setItem('aanganVisited', 'true');
+    }, 1000);
+}
+
 // Mobile Navigation Toggle
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
@@ -398,30 +430,46 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Form submission handling
-document.querySelector('.contact-form form').addEventListener('submit', function(e) {
-    e.preventDefault();
+// Email functionality for contact form
+function sendEmail() {
+    // Get form values
+    const name = document.getElementById('customerName').value;
+    const phone = document.getElementById('customerPhone').value;
+    const email = document.getElementById('customerEmail').value;
+    const plan = document.getElementById('selectedPlan').value;
+    const requirements = document.getElementById('requirements').value;
     
-    // Get form data
-    const formData = new FormData(this);
-    const name = this.querySelector('input[type="text"]').value;
-    const phone = this.querySelector('input[type="tel"]').value;
-    const email = this.querySelector('input[type="email"]').value;
-    const plan = this.querySelector('select').value;
-    const requirements = this.querySelector('textarea').value;
-    
-    // Simple validation
+    // Validate required fields
     if (!name || !phone || !email || !plan) {
         alert('Please fill in all required fields.');
         return;
     }
     
-    // Show success message
-    alert('Thank you for your interest! We will contact you soon to confirm your tiffin service.');
+    // Create email body with all the information
+    const emailBody = `Hello,
+
+I would like to book a tiffin service with आँगन.
+
+Customer Details:
+- Name: ${name}
+- Phone: ${phone}
+- Email: ${email}
+- Selected Plan: ${plan}
+- Additional Requirements: ${requirements || 'None'}
+
+Please contact me to confirm my tiffin service booking.
+
+Thank you!`;
     
-    // Reset form
-    this.reset();
-});
+    // Create mailto link
+    const mailtoLink = `mailto:arihantvv.av21@gmail.com?subject=आँगन Tiffin Service Booking - ${name}&body=${encodeURIComponent(emailBody)}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
+    // Show success message
+    alert('Email client opened! Please send the email to complete your booking.');
+}
 
 // Intersection Observer for animations
 const observerOptions = {

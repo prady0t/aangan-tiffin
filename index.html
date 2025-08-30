@@ -114,7 +114,7 @@
                         <p class="plan-description">Basic plan with essential meals</p>
                     </div>
                     <ul class="plan-features">
-                        <li>1 meal per day</li>
+                        <li>2 meals per day</li>
                         <li>Monday to Sunday</li>
                         <li>Fresh home-cooked food</li>
                         <li>Hygienic packaging</li>
@@ -136,7 +136,7 @@
                         <p class="plan-description">Balanced plan with variety</p>
                     </div>
                     <ul class="plan-features">
-                        <li>1 meal per day</li>
+                        <li>2 meals per day</li>
                         <li>Monday to Sunday</li>
                         <li>Fresh home-cooked food</li>
                         <li>Hygienic packaging</li>
@@ -159,7 +159,7 @@
                         <p class="plan-description">Premium plan with full variety</p>
                     </div>
                     <ul class="plan-features">
-                        <li>1 meal per day</li>
+                        <li>2 meals per day</li>
                         <li>Monday to Sunday</li>
                         <li>Fresh home-cooked food</li>
                         <li>Hygienic packaging</li>
@@ -308,7 +308,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>Email</h4>
-                            <p>info@aangan-tiffin.com</p>
+                            <p>arihantvv.av21@gmail.com</p>
                         </div>
                     </div>
                                             <div class="contact-item">
@@ -322,18 +322,18 @@
                         </div>
                 </div>
                 <div class="contact-form">
-                    <form>
+                    <form id="contactForm">
                         <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
+                            <input type="text" id="customerName" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="tel" placeholder="Phone Number" required>
+                            <input type="tel" id="customerPhone" placeholder="Phone Number" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Email Address" required>
+                            <input type="email" id="customerEmail" placeholder="Email Address" required>
                         </div>
                         <div class="form-group">
-                            <select required>
+                            <select id="selectedPlan" required>
                                 <option value="">Select Plan Type</option>
                                 <option value="type3">TYPE 3 - ₹3,500/Month</option>
                                 <option value="type2">TYPE 2 - ₹4,000/Month</option>
@@ -341,9 +341,9 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Additional Requirements" rows="4"></textarea>
+                            <textarea id="requirements" placeholder="Additional Requirements" rows="4"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Book Your Tiffin</button>
+                        <button type="button" class="btn btn-primary" onclick="sendEmail()">Book Your Tiffin</button>
                     </form>
                 </div>
                 </div>
@@ -373,22 +373,28 @@
                     <p>Vivek Vihar, B-Block, Phase 2</p>
                     <p>Owner: Sweta Verma</p>
                     <p>Phone: +91 98765 43210</p>
-                    <p>Email: info@aangan-tiffin.com</p>
+                    <p>Email: arihantvv.av21@gmail.com</p>
                 </div>
-                <div class="footer-section">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
+
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 आँगन Tiffin Service. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Welcome Screen Overlay -->
+    <div id="welcomeOverlay" class="welcome-overlay">
+        <div class="welcome-content">
+            <div class="welcome-icon">
+                <i class="fas fa-qrcode"></i>
+            </div>
+            <h1 class="welcome-title">Welcome to आँगन!</h1>
+            <p class="welcome-message">Thank you for showing interest in our traditional home-cooked tiffin service!</p>
+            <p class="welcome-subtitle">Discover authentic flavors delivered with love and care</p>
+            <button class="btn btn-primary welcome-btn" onclick="enterWebsite()">Enter Website</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

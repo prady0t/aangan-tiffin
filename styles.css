@@ -919,3 +919,122 @@ h1, h2, h3, h4, h5, h6 {
         scroll-behavior: smooth;
     }
 }
+
+/* Welcome Screen Styles */
+.welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+.welcome-overlay.fade-out {
+    opacity: 0;
+}
+
+.welcome-content {
+    text-align: center;
+    color: white;
+    max-width: 500px;
+    padding: 2rem;
+    animation: slideInUp 1s ease-out;
+}
+
+.welcome-icon {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    animation: bounce 2s infinite;
+}
+
+.welcome-title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-message {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+.welcome-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    font-style: italic;
+}
+
+.welcome-btn {
+    font-size: 1.2rem;
+    padding: 15px 40px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.welcome-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Hide main content initially */
+body.welcome-mode {
+    overflow: hidden;
+}
+
+body.welcome-mode .navbar,
+body.welcome-mode .hero,
+body.welcome-mode .about,
+body.welcome-mode .pricing,
+body.welcome-mode .contact,
+body.welcome-mode .footer {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+body.website-loaded .navbar,
+body.website-loaded .hero,
+body.website-loaded .about,
+body.website-loaded .pricing,
+body.website-loaded .contact,
+body.website-loaded .footer {
+    opacity: 1;
+}
