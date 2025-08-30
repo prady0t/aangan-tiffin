@@ -145,7 +145,8 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
     min-height: 100vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     position: relative;
 }
 
@@ -208,6 +209,24 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+}
+
+.hero-fssai-image {
+    margin: 2rem 0 0 0;
+    text-align: center;
+}
+
+.fssai-logo {
+    width: 150px;
+    height: auto;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+    opacity: 0.9;
+}
+
+.fssai-logo:hover {
+    transform: scale(1.05);
+    opacity: 1;
 }
 
 .hero-image {
@@ -743,6 +762,18 @@ h1, h2, h3, h4, h5, h6 {
 
 .contact-form .btn i {
     margin-right: 8px;
+}
+
+/* Hero FSSAI Image */
+.hero-fssai {
+    text-align: left;
+    margin-top: 1rem;
+    z-index: 2;
+}
+
+.fssai-hero-logo {
+    max-width: 350px;
+    height: auto;
 }
 
 /* Footer */
